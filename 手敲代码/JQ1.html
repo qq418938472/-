@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQury</title>
+	<script type="text/javascript" src="./js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript">
+		
+
+
+		$(function(){
+			// var username = $('#username').attr('value');
+			var username = $('#username').val();
+			alert(username);
+			$('#username').val('什么鬼');
+			var str = $('.p1').html();
+			$('.p1').html('葫芦娃，上山救爷爷，爷爷说，不用了。因为蝎子精死了。')
+			$('ul li').eq(2).css({color: "#ff0011", background:"blue"});
+			$('li').click(function(){
+				var $li = $(this),
+				isWithTwo = $li.is(function(){
+					return $('strong', this).length ===2;
+				});
+				if(isWithTwo){
+					$li.css("background-color","green");
+				}else{
+					$li.css("background-color", "red");
+				}
+			});
+			// #('#username').wrap('<b></b>');
+			// $('ul').remove();
+		})
+	</script>
+</head>
+<body>
+	<input id="username" type="text" value="小明" disabled="disabled">
+	<p class="p1" id="p1">
+		<a href="#">大头儿子边上住了个大头老王</a>
+		<div>
+			<input type="text">
+		</div>
+		<input type="text">
+	</p>
+	<ul>
+		<li><strong>小明</strong></li>
+		<li><strong>小红</strong><strong>小蓝</strong></li>
+		<li>小黄</li>
+		<li>小绿</li>
+	</ul>
+</body>
+</html>

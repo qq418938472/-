@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ计算器</title>
+	<script type="text/javascript" src="./js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('p input[type=button]').click(function(){
+				var num1 = Number($('#num1').val());
+				var num2 = Number($('#num2').val());
+				var fuhao = $(this).val();
+				switch(fuhao){
+					case '+':
+						var num3 = num1+num2;
+					break;
+					case '-':
+						var num3 = num1-num2;
+					break;
+					case '*':
+						var num3 = num1*num2;
+					break;
+					case '/':
+						var num3 = num1/num2;
+					break;
+				}
+				$('#num3').text(num3);
+
+			})
+			//冒泡绑定。通过父级元素对自己目标元素进行监控绑定事件。
+			$('#p1').on('click', '.more', function(){
+				var html = '<input type="button" class="more" value="点我一下，我就多一个"/>';
+				$('#p1').append(html);
+			})
+			// $('#p1').on('click', '.more', function(){
+			// 	var html = '<input class="more" type="button" value="点一下我，我就多一个">';
+			// 	$('#p1').append(html);
+			// })
+		})
+	</script>
+</head>
+<body>
+	<p>数字1：<input id="num1" type="text"></p>
+	<p>数字2：<input id="num2" type="text"></p>
+	<p>
+		<input type="button" value="+">
+		<input type="button" value="-">
+		<input type="button" value="*">
+		<input type="button" value="/">
+	</p>
+	<p>结果：<span id="num3"></span></p>
+	<p id="p1">
+		<input type="button" class="more" value="点我一下，我就多一个">
+	</p>
+</body>
+</html>
